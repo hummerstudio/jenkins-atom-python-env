@@ -1,0 +1,81 @@
+{
+  "atomCode": "python-env",
+  "name": "Python environment",
+  "version": "1.0.0",
+  "description": "Creates a virtualenv, installs what the project needs, and runs one command in it.",
+  "execution": {
+    "packagePath": "python-env.jar",
+    "language": "java",
+    "target": "$atom_java_path -cp python-env.jar com.jenkinschina.atom.sdk.AtomRunner"
+  },
+  "input": {
+    "python": {
+      "label": "基础解释器（留空用 PATH 里的 python3）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "venv": {
+      "label": "虚拟环境目录",
+      "type": "vuex-input",
+      "default": ".venv"
+    },
+    "requirements": {
+      "label": "requirements.txt（可选）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "packages": {
+      "label": "额外安装的包（逗号分隔）",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "indexUrl": {
+      "label": "自定义 pip 源",
+      "type": "vuex-input",
+      "default": ""
+    },
+    "upgradePip": {
+      "label": "先升级 pip",
+      "type": "checkbox",
+      "default": "false"
+    },
+    "command": {
+      "label": "在虚拟环境里执行的命令（留空只准备环境）",
+      "type": "textarea",
+      "default": ""
+    },
+    "failOnCommandError": {
+      "label": "命令失败就让这一步失败",
+      "type": "checkbox",
+      "default": "true"
+    }
+  },
+  "output": {
+    "VIRTUAL_ENV": {
+      "type": "string",
+      "description": "虚拟环境目录（同名环境变量）"
+    },
+    "PATH": {
+      "type": "string",
+      "description": "把虚拟环境的 bin 放到最前面的 PATH"
+    },
+    "pythonVersion": {
+      "type": "string",
+      "description": "解释器版本"
+    },
+    "pipVersion": {
+      "type": "string",
+      "description": "pip 版本"
+    },
+    "exitCode": {
+      "type": "string",
+      "description": "命令退出码"
+    }
+  },
+  "x-jenkins": {
+    "protocol": "jenkins-1",
+    "requires": {
+      "runner": ">=0.4.0"
+    }
+  }
+}

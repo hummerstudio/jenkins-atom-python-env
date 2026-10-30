@@ -1,0 +1,11 @@
+{
+  "name": "Python environment",
+  "summary": "Creates a virtualenv, installs requirements, runs a command in it.",
+  "author": "hummerstudio",
+  "license": "MIT",
+  "tags": [
+    "official-port",
+    "python"
+  ],
+  "homepage": "https://github.com/hummerstudio/jenkins-atom-python-env"
+}
